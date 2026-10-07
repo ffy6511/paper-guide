@@ -1,0 +1,16 @@
+/b>。下面的介绍都来自 Anthology 上的摘要。</div>
+
+<h3>这一卷主要在讲什么</h3>
+<p>我按标题和摘要粗略打了关键词（一篇可以算进好几类，数字只当个大概）：</p>
+<ul>
+<li><b>Agent 是最大的主题</b>：提到 agent 的约 32 篇，其中提到 multi-agent 的约 13 篇。覆盖评测、调试、记忆、编排框架、具身机器人。</li>
+<li><b>评测 / benchmark 工具</b>：提到 evaluation 或 benchmark 的超过一半（约 52 篇），不过很多只是在摘要里顺带做了评测。</li>
+<li><b>检索 / RAG / 知识图谱</b>：约 27 篇。</li>
+<li><b>可解释性 / 可视化 / 交互界面</b>：可解释性约 14 篇；大量系统带 UI、dashboard 或可视化。</li>
+<li><b>垂直领域</b>：医疗 / 临床 / 生物医学约 13 篇，另有金融、法律、教育、政府文档等。</li>
+<li><b>标注平台</b>：约 15 篇提到 annotation。</li>
+</ul>
+
+<h3>挑出来值得看的（偏 agent / copilot / 交互系统 / steering）</h3>
+<p class="note">说明是按摘要写的“这篇在做什么”，没有替作者夸大，数字都是摘要里的原数。点标题进 Anthology 页面，能看 PDF 和完整摘要。</p>
+<h4>Agent 评测 / 调试（和 AgentCompass 最像）</h4><ul class="demo"><li><a href="https://aclanthology.org/2026.acl-demo.34/" target="_blank" rel="noopener"><b>MASEval: Extending Multi-Agent Evaluation from Models to Systems</b></a><br><span class="au">Cornelius Emde, Alexander Rubinstein, Anmol Goel, Ahmed Heakl 等 · 2026.acl-demo.34</span><br>把评测对象从“模型”扩到“整个 agent 系统”：拓扑、编排逻辑、错误处理、harness、上下文工程都当一等变量。摘要里的结论：在成本和能力相近的模型之间，选哪个框架和选哪个模型一样重要。</li><li><a href="https://aclanthology.org/2026.acl-demo.74/" target="_blank" rel="noopener"><

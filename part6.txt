@@ -1,0 +1,18 @@
+不是“白赚”。</li>
+<li>8 个场景的展示大多是定性例子；论文自己的例子里也能把“英国首都”改成 Paris——能力是双刃剑，作者在伦理声明里专门强调了滥用风险。</li>
+<li>本质是一篇系统 / demo 论文，贡献在工程和工具，不是提出新的 steering 理论。</li>
+</ul></div>
+<p class="note">小注：作者列表里有一位 Yuchen Yan（与分享人姓名拼音一致），是不是同一人我没核实。</p>
+</section>
+
+<!-- ============ 2 ACL ============ -->
+<section class="card" id="acl">
+<h2><span class="no">②</span>ACL 2026 第 3 卷：系统演示（System Demonstrations）</h2>
+<div class="meta">全称：Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics (Volume 3: System Demonstrations)<br>
+编者：Greg Durrett, Ping Jian · Anthology ID：2026.acl-demo · 2026 年 7 月 · 美国加州圣迭戈<br>
+出版方：Association for Computational Linguistics · DOI：10.18653/v1/2026.acl-demo · ISBN：979-8-89176-392-0</div>
+<div class="links">
+<a class="btn" href="https://aclanthology.org/volumes/2026.acl-demo/" target="_blank" rel="noopener">ACL Anthology 卷页面（群里分享的链接）</a>
+<a class="btn" href="https://doi.org/10.18653/v1/2026.acl-demo" target="_blank" rel="noopener">DOI</a>
+</div>
+<div class="tldr"><b>先说清楚：</b>这个链接不是一篇论文，而是 ACL 2026 的 Demo 论文集。页面上列了 <b>85 篇</b>论文（另有一份前言 front matter）。Demo 论文的套路是：做了一个能用的系统 / 工具 / 平台，配代码、视频或在线 Demo。<br>我读了卷页面上的全部标题和摘要，<b>没有逐篇读 PDF<
