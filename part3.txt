@@ -1,0 +1,21 @@
+ss（arXiv 2607.13705）</a></li>
+<li><a href="#order">三份资料怎么串起来读</a></li>
+<li><a href="#source">信息来源与说明</a></li>
+</ol></nav>
+
+<!-- ============ 1 EasySteer ============ -->
+<section class="card" id="easysteer">
+<h2><span class="no">①</span>EasySteer: A Unified Framework for High-Performance and Extensible LLM Steering</h2>
+<div class="meta">作者：Haolei Xu, Xinyu Mei, Yuchen Yan, Rui Zhou, Wenqi Zhang, Weiming Lu*, Yueting Zhuang, Yongliang Shen*（*通讯作者）· 浙江大学<br>
+arXiv 2509.25175（cs.CL）· v1 2025-09-29，当前 v3 2026-09-03 · arXiv 备注：<b>EMNLP 2026 System Demonstrations</b> · Apache-2.0 开源</div>
+<div class="links">
+<a class="btn" href="https://arxiv.org/abs/2509.25175" target="_blank" rel="noopener">arXiv 摘要页</a>
+<a class="btn" href="https://arxiv.org/pdf/2509.25175" target="_blank" rel="noopener">PDF（群里分享的链接）</a>
+<a class="btn" href="https://github.com/ZJU-REAL/EasySteer" target="_blank" rel="noopener">GitHub 代码</a>
+<a class="btn" href="https://www.youtube.com/watch?v=3rRGzZmhrXg" target="_blank" rel="noopener">演示视频</a>
+</div>
+<div class="tldr"><b>一句话：</b>不重新训练模型，推理时往某几层的隐藏状态上“加一个方向向量”就能让模型少啰嗦、少胡说、换语气——EasySteer 把这件事塞进 vLLM，做得又快又好扩展。</div>
+
+<h3>问题与动机</h3>
+<ul>
+<li>想控

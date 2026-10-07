@@ -16,29 +16,4 @@ header h1{font-size:1.75rem;line-height:1.35;margin:.2em 0 .3em}
 .sub{color:var(--mut);font-size:.95rem}
 nav.toc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin:22px 0}
 nav.toc a{color:var(--acc2);text-decoration:none}
-nav.toc ol{margin:.3em 0;padding-left:1.3em}
-section.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 22px 10px;margin:26px 0;box-shadow:0 1px 2px rgba(0,0,0,.03)}
-h2{font-size:1.35rem;line-height:1.4;margin:.1em 0 .4em}
-h2 .no{color:var(--acc);margin-right:.35em}
-h3{font-size:1.06rem;margin:1.3em 0 .35em;color:var(--acc)}
-h4{font-size:1rem;margin:1.2em 0 .3em}
-a{color:var(--acc2)}
-.meta{font-size:.92rem;color:var(--mut)}
-.links{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
-.btn{display:inline-block;padding:6px 12px;border-radius:999px;background:var(--tag);border:1px solid var(--line);text-decoration:none;font-size:.9rem}
-.tldr{background:var(--hl);border-left:4px solid var(--acc);padding:10px 14px;border-radius:8px;margin:12px 0}
-ul,ol{padding-left:1.3em}
-li{margin:.25em 0}
-table{border-collapse:collapse;width:100%;font-size:.88rem;margin:8px 0;display:block;overflow-x:auto}
-th,td{border:1px solid var(--line);padding:5px 8px;text-align:left;white-space:nowrap}
-th{background:var(--tag)}
-code{background:var(--tag);padding:1px 5px;border-radius:4px;font-size:.88em}
-.note{font-size:.9rem;color:var(--mut)}
-.mine{font-size:.92rem;border:1px dashed var(--line);padding:8px 12px;border-radius:8px}
-ul.demo{list-style:none;padding:0}
-ul.demo li{border-top:1px solid var(--line);padding:9px 0;font-size:.94rem}
-.au{color:var(--mut);font-size:.85rem}
-details{margin:12px 0}
-summary{cursor:pointer;color:var(--acc2)}
-details ol li{font-size:.9rem}
-footer{color:var(--mut);font-size:.85rem;margin-top:40px;border-top:1px solid var(
+nav.toc ol{margin:.3em 0;padding-left:1.3e

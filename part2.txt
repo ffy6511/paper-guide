@@ -1,45 +1,27 @@
-SteerVectorRequest</code> 统一接口；可以按 token、位置、推理阶段触发；多个向量同时用，冲突时按用户指定策略（叠加、优先级等）处理。</li>
- </ul></li>
-<li><b>资源库</b>：预计算好的向量和示例，覆盖 8 个场景：安全、推理、知识、真实性、语言、情感、人格、文风。</li>
-<li><b>网页 Demo</b>：推理 / 对话 / 抽取 / 训练四个模块，可并排对比原始与 steer 后输出，支持中英文界面。</li>
-</ol>
+e);padding:8px 12px;border-radius:8px}
+ul.demo{list-style:none;padding:0}
+ul.demo li{border-top:1px solid var(--line);padding:9px 0;font-size:.94rem}
+.au{color:var(--mut);font-size:.85rem}
+details{margin:12px 0}
+summary{cursor:pointer;color:var(--acc2)}
+details ol li{font-size:.9rem}
+footer{color:var(--mut);font-size:.85rem;margin-top:40px;border-top:1px solid var(--line);padding-top:14px}
+</style>
+</head>
+<body><div class="wrap">
+<header>
+<div class="sub">群聊分享整理 · 分享人：颜聿辰 · 2026-09-29</div>
+<h1>三份资料的中文阅读指南</h1>
+<div class="sub">EasySteer（推理时“拧旋钮”控制大模型）· AgentCompass（统一的 Agent 评测底座）· ACL 2026 系统演示（Demo）论文集</div>
+</header>
 
-<h3>关键结果</h3>
-<p><b>速度</b>（NVIDIA A6000 48GB，DeepSeek-R1-Distill-Qwen-1.5B，MATH 数据集，为公平起见用全零向量）：</p>
+<nav class="toc"><b>先说结论（30 秒版）</b>
 <ul>
-<li>批量推理、全部 28 层都干预：短序列 8991.46 tok/s、长序列 7074.04 tok/s；原生 vLLM 是 10247.55 和 7562.50，只掉了 12.3% 和 6.5%。</li>
-<li>三个向量同时作用全部层：长序列 6853.92 tok/s，保留了基线吞吐的 90.6%（摘要的说法是多向量配置下保持基线吞吐的 81–91%）。</li>
-<li>长序列批量对比：pyreft 652.63、repeng 316.59 tok/s，EasySteer 分别快 <b>10.8×</b> 和 <b>22.3×</b>；EasyEdit2 不支持批量推理。</li>
+<li><b>EasySteer</b>：把 “steering（不改权重、在推理时往隐藏状态里加向量来控制模型行为）” 做成了基于 vLLM 的高性能框架，比同类工具快 10.8–22.3 倍。</li>
+<li><b>AgentCompass</b>：上海 AI Lab 的 agent 评测基础设施，把 Benchmark / Harness / Environment 拆开随意组合；实验说明换个 harness 分数就能差很多，还查出不少“疑似刷分（reward hacking）”。</li>
+<li><b>ACL 2026 Demo 卷</b>：不是一篇论文，是一整本会议论文集（85 篇系统演示）。下面挑了和 agent、评测、copilot、可解释性相关的十几篇。</li>
 </ul>
-<p><b>效果</b>：</p>
-<table>
-<tr><th>任务</th><th>模型 / 方法</th><th>结果（原文数字）</th></tr>
-<tr><td>减少幻觉（TruthfulQA）</td><td>Qwen2.5-1.5B-Instruct + LoReFT</td><td>开放问答准确率 27.17% → 33.41%</td></tr>
-<tr><td>减少幻觉（TruthfulQA）</td><td>Llama-3.1-8B-Instruct + PCA</td><td>多选准确率 50.55% → 62.67%</td></tr>
-<tr><td>防过度思考（SEAL）</td><td>R1-Distill-Qwen-1.5B，GSM8K</td><td>准确率 79.6 → 82.3，token 2435 → 1460（约 −40%）</td></tr>
-<tr><td>防过度思考（SEAL）</td><td>R1-Distill-Qwen-1.5B，MATH500</td><td>准确率 70.8 → 78.4，token 3966 → 3075</td></tr>
-<tr><td>防过度思考（SEAL）</td><td>R1-Distill-Qwen-7B</td><td>token 在 GSM8K / MATH500 上降 13.3% / 16.8%；准确率 GSM8K 90.3 → 88.5、MATH500 86.6 → 88.2</td></tr>
-</table>
-<p class="note">论文还指出：分析类方法基本不伤流畅度，学习类方法存在“准确率涨、流畅度降”的取舍（例如 Qwen 上 LoReFT 的流畅度分 3.896 → 3.126）。</p>
-
-<h3>局限（下面是我读完后的判断，不是作者原话）</h3>
-<div class="mine"><ul>
-<li>速度测试只在 1.5B 模型、单张 A6000 上做，且用的是全零向量；大模型、多卡下的表现论文没给。</li>
-<li>效果实验的模型都偏小（1.5B–8B），且 7B 在 GSM8K 上省了 token 但准确率略降（90.3 → 88.5），说明不是“白赚”。</li>
-<li>8 个场景的展示大多是定性例子；论文自己的例子里也能把“英国首都”改成 Paris——能力是双刃剑，作者在伦理声明里专门强调了滥用风险。</li>
-<li>本质是一篇系统 / demo 论文，贡献在工程和工具，不是提出新的 steering 理论。</li>
-</ul></div>
-<p class="note">小注：作者列表里有一位 Yuchen Yan（与分享人姓名拼音一致），是不是同一人我没核实。</p>
-</section>
-
-<!-- ============ 2 ACL ============ -->
-<section class="card" id="acl">
-<h2><span class="no">②</span>ACL 2026 第 3 卷：系统演示（System Demonstrations）</h2>
-<div class="meta">全称：Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics (Volume 3: System Demonstrations)<br>
-编者：Greg Durrett, Ping Jian · Anthology ID：2026.acl-demo · 2026 年 7 月 · 美国加州圣迭戈<br>
-出版方：Association for Computational Linguistics · DOI：10.18653/v1/2026.acl-demo · ISBN：979-8-89176-392-0</div>
-<div class="links">
-<a class="btn" href="https://aclanthology.org/volumes/2026.acl-demo/" target="_blank" rel="noopener">ACL Anthology 卷页面（群里分享的链接）</a>
-<a class="btn" href="https://doi.org/10.18653/v1/2026.acl-demo" target="_blank" rel="noopener">DOI</a>
-</div>
-<div class="tldr"><b>先说清楚：</b>这个链接不是一篇论文，而是 ACL 2026 的 Demo 论文集。页面上列了 <b>85 篇</b>论文（另有一份前言 front matter）。Demo 论文
+<ol>
+<li><a href="#easysteer">EasySteer（arXiv 2509.25175）</a></li>
+<li><a href="#acl">ACL 2026 Demo 卷</a></li>
+<li><a href="#agentcompass">AgentCompa
