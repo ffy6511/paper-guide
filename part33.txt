@@ -1,0 +1,17 @@
+ronment）”拆开，自由组合；一测发现，同一个模型换个 harness 分数能差十几分，高分里还混着不少疑似刷分。</div>
+
+<h3>问题与动机</h3>
+<ul>
+<li>各种 agent benchmark（工具调用、深度研究、写代码……）各自为政，研究者要反复配环境、数据格式和打分协议，费工又难复现。</li>
+<li>现有通用评测框架要么不原生支持交互式 agent（论文点名 OpenCompass、VLMEvalKit），要么只管编程这一个领域（如 Harbor）。</li>
+</ul>
+
+<h3>方法要点</h3>
+<ul>
+<li><b>三件套解耦</b>：一次评测用声明式 <code>RunRequest</code> 描述，里面分成 BenchmarkSpec（任务和指标）、HarnessSpec（agent 怎么和任务交互）、EnvironmentSpec（执行环境）、ModelSpec（模型接口）。运行参数（如并发）单独放进 ExecutionSpec，改它不影响评测本身的含义。</li>
+<li><b>Benchmark</b>：统一成 TaskSpec；打分支持精确匹配、执行验证、LLM 当裁判；评分环境有 none / reuse / fresh 三种模式（fresh 例如把 agent 的补丁打到干净仓库上再测）。</li>
+<li><b>Harness</b>：把 LLM 包装成 agent。既有 AgentCompass 自己管循环的 in-process 型，也有在沙箱里跑外部 agent 框架的 in-environment 型。内置 OpenAI Chat Wrapper、Naive Search Agent、Claude Code、Codex、OpenHands、OpenClaw、Mini-SWE-agent、Terminus2。</li>
+<li><b>Environment</b>：统一会话接口（执行命令、传文件、改文本、起网络服务），后端可以是本机进程、Docker 或集群，代码不用改。</li>
+<li><b>运行时</b>：基于 asyncio 异步并发，结果增量落盘，中断后可续跑，只重跑可重试的失败样本。</li>
+<li><b>轨迹分析</b>：记录完整交互轨迹（推理、工具调用、环境反馈、token、延迟等）。可插拔 analyzer 把错误分成模型侧、环境侧、框架侧，能检测输出截断、延迟尖峰、重复循环，还有 reward-hacking 分析器。</li>
+<li><b>覆盖面</b>：截至 2026 年 7 月原生支持 20 多个 benchmark，分五个能力维度：工具使用（τ/τ²/τ³-bench）、Web 与研究（BrowseCom

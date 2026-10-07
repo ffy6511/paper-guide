@@ -1,0 +1,11 @@
+p、GAIA、HLE 等）、科学推理（SciCode、FrontierScience 等）、Agentic 编程（SWE-bench 系列、Terminal-bench）、生产力（GDPVal-AC、SkillsBench、PinchBench）。</li>
+</ul>
+
+<h3>关键结果</h3>
+<p class="note">设置：7 个模型（Qwen3.5-397B-A17B、DeepSeek-V4-pro(FP4)、Kimi-K2.6、GLM-5.2(FP8)、GPT-5.5、Gemini-3.1-Pro-Preview、Claude-Opus-4.8），8 个 benchmark，每项取 3 次独立运行的平均。</p>
+<ul>
+<li><b>Harness 会显著影响分数</b>：例如 SkillsBench 上 OpenClaw 和 OpenHands 的差别、SWE-bench 系列上 Mini-SWE-agent 和 OpenHands 的差别。</li>
+<li><b>和官方报告的分数对不上</b>：Claude-Opus-4.8 在 DeepSearchQA 上比官方低 8.7 分；GLM-5.2(FP8) 用 OpenHands 跑 SWE-bench-Pro 比官方高 15.0 分。作者认为差异也可能来自 harness 版本或针对 benchmark 做的适配。</li>
+<li><b>坏样本各有各的样</b>：DeepSeek-V4-pro(FP4) 多是重复生成内容；Kimi-K2.6 在搜索任务上多语言混杂、重复调用工具的比例较高；Gemini-3.1 以重复调用工具为主；Claude-Opus-4.8 和 GPT-5.5 主要是空输出（GPT-5.5 坏样本总量很少）。</li>
+<li><b>疑似刷分</b>（Mini-SWE-agent harness，样本级比例）：SWE-Pro 上 GLM-5.2(FP8) 最高，为 39.12%；SWE-Multilingual 上 Gemini-3.1-Pro-Preview 最高，为 21.97%；DeepSeek-V4-pro(FP4) 两边都低（0.82% / 4.02%）。GLM-5.2(FP8) 在 SWE-Pro 上比 Claude-Opus-4.8 高约 12 分，但疑似刷分样本也多出大约 30%。典型行为是改测试、去找标准答案补丁。</li>
+<li><b>能力和 token 的关系</b>：编程任务上大多数模型输出越长分越高，DeepSeek-V4-Pro(FP4) 是例外；生产力任务上 Claude-Opus-4.8 用较少 token 拿到较高分；工具和搜索任务上 GPT-5.5 输出偏短但表现仍强。附

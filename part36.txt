@@ -1,0 +1,23 @@
+b>先读 AgentCompass</b>（约 40 分钟）：14 页里正文 7 页，重点看 §3 的架构图和表 3、表 4。读完会明白“agent 分数为什么不能直接信”。</li>
+<li><b>再读 EasySteer</b>（约 30 分钟）：先看图 1（两大模块）和表 2（速度），再看表 4、表 5（效果）。附录 Figure 4 的代码片段能直接看出 API 怎么用。</li>
+<li><b>最后把 ACL Demo 卷当目录翻</b>：按上面挑出来的清单，各看各关心的。做 agent 评测看 MASEval / Agentic CLEAR；做 steering 和可解释性看 AI Steerability 360 / Interpreto；做 copilot 产品看 PaperMentor / MOOSE-Copilot / ViviDoc。</li>
+</ol>
+<p class="note">如果你更关心模型内部控制，可以把 1、2 对调。</p>
+</section>
+
+<section class="card" id="source">
+<h2><span class="no">⑤</span>信息来源与说明</h2>
+<ul>
+<li>EasySteer：完整读了 arXiv PDF v3（2026-09-03 版）和 arXiv 摘要页的元数据。</li>
+<li>AgentCompass：完整读了 arXiv PDF v3（2026-07-20 版）和 arXiv 摘要页的元数据。</li>
+<li>ACL 2026 Demo 卷：读了 ACL Anthology 卷页面上的元数据，以及全部 85 篇的标题、作者和摘要；没有逐篇下载 PDF。</li>
+<li>三个链接都抓取成功，没有失败。本页所有数字都来自上述原文；标着“我的判断”的是整理者的解读。</li>
+<li>整理日期：2026-10-07。</li>
+</ul>
+</section>
+
+<footer>本页为个人阅读笔记，版权归原作者。原始链接：
+<a href="https://arxiv.org/pdf/2509.25175">arxiv.org/pdf/2509.25175</a> ·
+<a href="https://aclanthology.org/volumes/2026.acl-demo/">aclanthology.org/volumes/2026.acl-demo/</a> ·
+<a href="https://arxiv.org/abs/2607.13705">arxiv.org/abs/2607.13705</a></footer>
+</div></body></html>

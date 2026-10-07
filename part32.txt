@@ -1,0 +1,21 @@
+sistant for Unified Exploratory and Fine-Grained Scientific Hypothesis Discovery</a> <span class="au">— Hongran An, Zonglin Yang</span></li></ol>
+</details>
+
+<h3>局限 / 注意</h3>
+<ul>
+<li>Demo 论文篇幅短，重点在“系统能用”，实验通常比较轻，别拿它当严格的方法比较。</li>
+<li>上面的主题统计只是按关键词匹配，会有误差。</li>
+</ul>
+</section>
+
+<!-- ============ 3 AgentCompass ============ -->
+<section class="card" id="agentcompass">
+<h2><span class="no">③</span>AgentCompass: A Unified Evaluation Infrastructure for Agent Capabilities</h2>
+<div class="meta">作者：AgentCompass Team, Shanghai AI Laboratory（上海人工智能实验室）；署名按姓氏字母序共 23 人：Kai Chen, Zichen Ding, Jiaye Ge, …, Dongsheng Zhu<br>
+arXiv 2607.13705（cs.AI; cs.SE）· v1 2026-07-15，当前 v3 2026-07-20 · arXiv 页面未标注发表会议（属技术报告性质）</div>
+<div class="links">
+<a class="btn" href="https://arxiv.org/abs/2607.13705" target="_blank" rel="noopener">arXiv 摘要页（群里分享的链接）</a>
+<a class="btn" href="https://arxiv.org/pdf/2607.13705" target="_blank" rel="noopener">PDF</a>
+<a class="btn" href="https://github.com/open-compass/AgentCompass" target="_blank" rel="noopener">GitHub 代码</a>
+</div>
+<div class="tldr"><b>一句话：</b>Agent 评测太碎了，每个 benchmark 一套脚本。AgentCompass 把“考什么（Benchmark）”“用什么姿势答（Harness）”“在哪答（Envi

@@ -1,0 +1,24 @@
+录还显示交互轮数不一定换来高分。</li>
+</ul>
+
+<h3>局限</h3>
+<div class="mine"><ul>
+<li>作者自己说明，“疑似 reward hacking”是按<b>行为特征</b>判定的，不代表有因果证据。所以 39% 不等于“39% 是作弊做对的”。</li>
+<li>（我的判断）部分开源模型用的是 FP4 / FP8 量化版，部分 benchmark 用 LLM 当裁判（如 DeepSearchQA 用 Qwen3.6-35B-A3B，PinchBench 用 Claude Opus 4.5），跨模型比较时这些因素都会掺进来。</li>
+<li>（我的判断）分数是 2026 年 7 月的快照，和 harness 版本强相关。arXiv 页面没写发表会议，按技术报告看待。</li>
+</ul></div>
+</section>
+
+<!-- ============ 4 order ============ -->
+<section class="card" id="order">
+<h2><span class="no">④</span>三份资料怎么串起来读</h2>
+<h3>它们的关系</h3>
+<ul>
+<li><b>一个往模型里面看，一个从外面看。</b>EasySteer 是“白盒”：直接改隐藏状态，控制模型怎么想、怎么说。AgentCompass 是“黑盒”：不碰模型内部，看它当 agent 时实际干得怎么样、哪里翻车。</li>
+<li><b>都是“基础设施型”论文</b>，设计思路惊人地像：都用装饰器注册表做插件化（EasySteer 注册 steering 算法，AgentCompass 注册 benchmark / harness / environment），都在讲“别再每次重写胶水代码”。</li>
+<li><b>ACL Demo 卷是这类论文的“大本营”</b>：EasySteer 自己就是 EMNLP 2026 的系统演示论文；它引用的竞品 AI Steerability 360 就在这本 ACL Demo 卷里。卷中还有一批和 AgentCompass 思路相近的 agent 评测工具，比如 MASEval（评整个系统而非只评模型）、Agentic CLEAR、PROTEA、RiskLab。</li>
+<li><b>一个能串起来的问题</b>：AgentCompass 发现的坏行为（重复调用工具、过度输出、刷分）能不能用 EasySteer 这类推理时干预去压？比如 EasySteer 已经演示过用 SEAL 压“过度思考”。这是我想到的延伸方向，两篇论文都没做这件事。</li>
+</ul>
+<h3>建议阅读顺序</h3>
+<ol>
+<li><
